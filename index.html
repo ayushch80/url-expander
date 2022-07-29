@@ -1,1 +1,26 @@
-
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Url Expander</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  </head>
+  <body>
+     <form class="d-flex" id="URL" method="POST">
+      <input class="form-control me-2" type="search" aria-label="Search" type="text" placeholder="Enter URL Here" id="expURL"/>
+      <button name="data" type="button" class="btn btn-primary" id="btn_click" id-"submit" onClick="window.location.reload();">Search</button>
+     </form>
+    <div id="exp" class="alert alert-secondary"></div>
+    <script type="module">
+      import { base32 } from "./js/base32.min.js";
+      import { base64 } from "./js/base64.min.js";
+      const myURL = document.getElementById("URL");
+      const getURL = myMne.elements.namedItem("expURL").value;
+      const base32_1 = base32.encode(getURL);
+      const base32_2 = base32.encode(base32_1)
+      document.getElementById("exp").innerText = "Expanded: " + base32_2;
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  </body>
+</html>
