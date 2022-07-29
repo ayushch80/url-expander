@@ -25,7 +25,7 @@
       const base32_5 = base32.encode(base32_4);
       const base64_2 = base64.encode(base32_5);
       const base64_3 = base64.encode(base64_2);
-      var result = base64_3.replace('=','');
+      var result = base64_3.replace(/=/g,'');
       document.getElementById("exp").innerText = "Expanded: " + result;
       console.log(result)
     </script>
