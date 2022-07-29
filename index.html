@@ -16,7 +16,7 @@
     <script src="js/base64.min.js" type="module"></script>
     <script type="module">
       const myURL = document.getElementById("URL");
-      const getURL = myMne.elements.namedItem("expURL").value;
+      const getURL = myURL.elements.namedItem("expURL").value;
       const base32_1 = base32.encode(getURL);
       const base32_2 = base32.encode(base32_1);
       document.getElementById("exp").innerText = "Expanded: " + base32_2;
