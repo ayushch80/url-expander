@@ -19,7 +19,13 @@
       const getURL = myURL.elements.namedItem("expURL").value;
       const base32_1 = base32.encode(getURL);
       const base32_2 = base32.encode(base32_1);
-      document.getElementById("exp").innerText = "Expanded: " + base32_2;
+      const base32_3 = base32.encode(base32_2);
+      const base64_1 = base64.encode(base64_1);
+      const base32_4 = base32.encode(base64_1);
+      const base32_5 = base32.encode(base32_4);
+      const base64_2 = base64.encode(base32_5);
+      const base64_3 = base64.encode(base64_2);
+      document.getElementById("exp").innerText = "Expanded: " + base64_3;
       console.log(base32_2)
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
