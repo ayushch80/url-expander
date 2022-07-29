@@ -18,8 +18,9 @@
       const myURL = document.getElementById("URL");
       const getURL = myMne.elements.namedItem("expURL").value;
       const base32_1 = base32.encode(getURL);
-      const base32_2 = base32.encode(base32_1)
+      const base32_2 = base32.encode(base32_1);
       document.getElementById("exp").innerText = "Expanded: " + base32_2;
+      console.log(base32_2)
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
   </body>
