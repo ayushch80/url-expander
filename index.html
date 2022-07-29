@@ -12,9 +12,9 @@
       <button name="data" type="button" class="btn btn-primary" id="btn_click" id-"submit" onClick="window.location.reload();">Search</button>
      </form>
     <div id="exp" class="alert alert-secondary"></div>
+    <script src="js/base32.min.js type="module">
+    <script src="js/base64.min.js type="module">
     <script type="module">
-      import { base32 } from "./js/base32.min.js";
-      import { base64 } from "./js/base64.min.js";
       const myURL = document.getElementById("URL");
       const getURL = myMne.elements.namedItem("expURL").value;
       const base32_1 = base32.encode(getURL);
