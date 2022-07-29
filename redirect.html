@@ -22,8 +22,18 @@
         return vars;
       }
       getUrlVars()
-      var redireURL_Hash = getUrlVars()["url"];
-      console.log(redireURL_Hash);
+      var redirURL_Hash = getUrlVars()["url"];
+      console.log(redirURL_Hash);
+      const decode_1 = base64.decode(redirURL_Hash);
+      const decode_2 = base64.decode(decode_1);
+      const decode_3 = base32.decode(decode_2);
+      const decode_4 = base32.decode(decode_3);
+      const decode_5 = base64.decode(decode_4);
+      const decode_6 = base32.decode(decode_5);
+      const decode_7 = base32.decode(decode_6);
+      const decode_8 = base32.decode(decode_7);
+      var redirURL = decode_8
+      console.log(redirURL)
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
   </body>
