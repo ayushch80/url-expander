@@ -4,14 +4,65 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Url Expander</title>
+    <style>
+      div {
+        width: 700px; 
+      } div.wordWrap {
+        word-wrap: break-word;
+      }
+      
+      .tooltip {
+        position: relative;
+        display: inline-block;
+      }
+      
+      .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 140px;
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px;
+        position: absolute;
+        z-index: 1;
+        bottom: 150%;
+        left: 50%;
+        margin-left: -75px;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      
+      .tooltip .tooltiptext::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #555 transparent transparent transparent;
+      }
+      
+      .tooltip:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+      }
+    </style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   </head>
   <body>
      <form class="d-flex" id="URL" method="POST">
       <input class="form-control me-2" type="search" aria-label="Search" type="text" placeholder="Enter URL Here" id="expURL"/>
-      <button name="data" type="button" class="btn btn-primary" id="btn_click" id-"submit" onClick="window.location.reload();">Make this URL long !!!</button>
+      <button name="data" type="button" class="btn btn-primary" id="btn_click" id-"submit" onClick="window.location.reload();">Make this URL long</button>
      </form>
-    <div id="exp" class="alert alert-secondary"></div>
+    <div id="exp" class="wordWrap"></div>
+    <div class="tooltip">
+    <button onclick="myFunction()" onmouseout="outFunc()" class="btn btn-primary">
+      <span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
+      Copy text
+      </button>
+    </div>
     <script src="js/base32.min.js" type="module"></script>
     <script src="js/base64.min.js" type="module"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -29,6 +80,22 @@
       var result = base64_3.replace(/=/g,'');
       document.getElementById("exp").innerText = "https://ayushch80.github.io/url-expander/redirect.html?url=" + result;
       console.log(result)
+    </script>
+    <script>
+    function myFunction() {
+      var copyText = document.getElementById("exp");
+      copyText.select();
+      copyText.setSelectionRange(0, 99999);
+      navigator.clipboard.writeText(copyText.value);
+  
+      var tooltip = document.getElementById("myTooltip");
+      tooltip.innerHTML = "Copied: " + copyText.value;
+    }
+
+    function outFunc() {
+      var tooltip = document.getElementById("myTooltip");
+      tooltip.innerHTML = "Copy to clipboard";
+    }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
   </body>
